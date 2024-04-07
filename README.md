@@ -6,7 +6,7 @@ Mainly modified from gRox167/typst-assignment-template
 
 ## Usage
 
-RTFC
+RTFSC
 
 ## Todo
 

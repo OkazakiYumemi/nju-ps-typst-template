@@ -10,8 +10,10 @@
 #problem(problem_id: "AC 1.2-3")[]
 
 #solution[
-#set enum(numbering: "a)")
 // + $A=mat(1,-1;-1,1;1,1)$
+
+#set enum(numbering: "a)")
+
 1. when $min(norm(bold(x))_2)$, $bold(x) = bold(x^*)$ is the solution to the problem, which is $x^*=vec(1/sqrt(3),1/sqrt(3),1/sqrt(3))$
 
 2. We have a matrix $bold(A) = mat(1,1;1,1;1,0)$, the projection operator is $ bold(P) = bold(A)(bold(A)^T A)^(-1)bold(A)^T = mat(1/2,1/2,0;1/2,1/2,0;0,0,1), $ hence, $ bold(x^*) = bold(P) bold(v)  = vec(1/2,1/2,1). $ 
