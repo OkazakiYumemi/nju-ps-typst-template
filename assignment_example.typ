@@ -97,7 +97,7 @@ pub fn main() {
 }
 ```
 
-#indent For haskell:
+For haskell:
 
 ```haskell
 zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]  
@@ -106,7 +106,7 @@ zipWith' _ _ [] = []
 zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
 ```
 
-#indent Select only a range of lines to show:
+Select only a range of lines to show:
 
 #codly-range(start: 3, end: 7)
 
@@ -122,7 +122,7 @@ def fibonaci(n):
 fibonaci(10)
 ```
 
-#indent Disable line numbers:
+Disable line numbers:
 
 #codly(enable-numbers: false)
 
@@ -133,7 +133,7 @@ int main() {
 }
 ```
 
-#indent Then pseudocodes.
+Then pseudocodes.
 #algorithm(
   caption: [The Euclidean algorithm],
   pseudocode(

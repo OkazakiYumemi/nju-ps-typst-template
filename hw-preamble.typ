@@ -142,7 +142,7 @@
 
   // Enable the codly environment
   show: codly-init.with()
-  show raw: it => block(
+  show raw: it => box(
     text(font: ("FiraCode Nerd Font Mono", "Noto Sans CJK SC"), size: 10pt, it)
   )
   
