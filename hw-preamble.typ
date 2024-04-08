@@ -1,8 +1,23 @@
-
+// Basic layout
 #let indent = h(2em)
 
-#let problem_counter = counter("problem")
+// Environment for beautiful code blocks
+#import "@preview/codly:0.2.0": *
+#let codly_icon() = {
+  box(
+    height: 0.8em,
+    baseline: 0.05em,
+  )
+  h(0.1em)
+}
 
+// Environment for algorithmic pseudocode
+#import "@preview/lovelace:0.2.0": *
+#let pseudocode = pseudocode.with(indentation-guide-stroke: 0.5pt)
+
+
+// Environment for sections, problems, solutions, etc
+#let problem_counter = counter("problem")
 #let section_counter = counter("section")
 
 #let section(section_name: none) = {
@@ -60,7 +75,10 @@
 // Initiate the document title, author...
 #let assignment_class(title, author, student_number, due_time, body) = {
   set text(font: ("Noto Serif CJK SC"), lang: "zh", region: "cn")
+
   set document(title: title, author: author)
+
+  // Basic page settings
   set page(
     paper: "a4", 
     header: locate( 
@@ -81,8 +99,10 @@
     // })
     )
   block(height:25%,fill:none)
-  align(center, text(24pt)[
-    *#title*])
+
+
+  // Title and Infomation
+  align(center, text(24pt)[*#title*])
   box(height: 40pt,
     columns(2, gutter: 14pt)[
       #set par(justify: true)
@@ -99,6 +119,7 @@
   )
   align(center, text(14pt)[#due_time])
 
+  // Alerts or Announcements
   align(center)[
     #block(
       inset: 8pt,
@@ -114,7 +135,29 @@
       *请谨慎使用。*
     ]
   ]
+
   pagebreak(weak: false)
+
+
+
+  // Enable the codly environment
+  show: codly-init.with()
+  show raw: it => block(
+    text(font: ("FiraCode Nerd Font Mono", "Noto Sans CJK SC"), size: 10pt, it)
+  )
+  
+  codly(
+    display-icon: false,
+    stroke-width: 1pt,
+    stroke-color: rgb("666666"),
+  )
+
+ // Enable the lovelace environment
+ show: setup-lovelace
+
+
+
+
   body
   
     // locate(loc => {
@@ -137,3 +180,4 @@
 
 //   align(center)[= #title]
 }
+

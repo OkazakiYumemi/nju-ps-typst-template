@@ -86,89 +86,77 @@ hence $op("sgn")(x) in diff norm(x)_1$.
 
 #solution[
 
-2. Not differentiable at $bold(x)=bold(0)$, and $h$ is convex.
+#indent This a test for code blocks.
 
-3. $ nabla [1/2 norm(bold(x)-bold(y))_2^2 + gamma lambda norm(x)_1 ] =  cases(x-y + gamma lambda "when " x>0, [x-y - gamma lambda,x-y +gamma lambda] "when" x=0, x-y - gamma lambda "when" x<0)  $. 
-let it be $0$,  we have
-$ prox_(gamma g(y)) = x^* = cases(y-gamma lambda "when " y>lambda ,
-[y-gamma lambda,y+gamma lambda] "when" y in [-gamma lambda,gamma lambda],
- y + gamma lambda "when" y < -gamma lambda) . $
 
-```matlab 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% load the variables of the optimization problem
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+For rust:
 
-load('dataset.mat');
-
-[p, n] = size(A);
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% set up the function and its gradient
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-evaluate_f = @(x) (1/n)*sum(log(1+exp(-b.*(A'*x))));
-evaluate_gradf = @(x) (1/n)*A*(-b.*exp(-b.*(A'*x))./(1+exp(-b.*(A'*x))));
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% parameters of the gradient method
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-xInit = zeros(p, 1); % zero initialization
-stepSize = 1; % step-size of the gradient method
-maxIter = 1000; % maximum number of iterations
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% optimize
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% initialize
-x = xInit;
-
-% keep track of cost function values
-objVals = zeros(maxIter, 1);
-
-% iterate
-for iter = 1:maxIter
-    
-    % update
-    xNext = x - stepSize*evaluate_gradf(x);
-    
-    % evaluate the objective
-    funcNext = evaluate_f(xNext);
-    
-    % store the objective and the classification error
-    objVals(iter) = funcNext;
-    
-    fprintf('[%d/%d] [step: %.1e] [objective: %.1e]\n',...
-        iter, maxIter, stepSize, objVals(iter));
-    
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % begin visualize data
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    % plot the evolution
-    figure(1);
-    set(gcf, 'Color', 'w');
-    semilogy(1:iter, objVals(1:iter), 'b-',...
-        iter, objVals(iter), 'b*', 'LineWidth', 2);
-    grid on;
-    axis tight;
-    xlabel('iteration');
-    ylabel('objective');
-    title(sprintf('GM (f = %.2e)', objVals(iter)));
-    xlim([1 maxIter]);
-    set(gca, 'FontSize', 16);
-    drawnow;
-    
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % end visualize data
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    % update w
-    x = xNext;
-end
+```rust
+pub fn main() {
+    println!("Hello, world!");
+}
 ```
+
+#indent For haskell:
+
+```haskell
+zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]  
+zipWith' _ [] _ = []  
+zipWith' _ _ [] = []  
+zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
+```
+
+#indent Select only a range of lines to show:
+
+#codly-range(start: 3, end: 7)
+
+```python
+import numpy as np
+
+def fibonaci(n):
+  if n <= 1:
+    return n
+  else:
+    return(fibonaci(n-1) + fibonaci(n-2))
+
+fibonaci(10)
+```
+
+#indent Disable line numbers:
+
+#codly(enable-numbers: false)
+
+```cpp
+int main() {
+  cout << "Hello, World!"; // 你好，世界
+  return 0;
+}
+```
+
+#indent Then pseudocodes.
+#algorithm(
+  caption: [The Euclidean algorithm],
+  pseudocode(
+    no-number,
+    [*input:* integers $a$ and $b$],
+    no-number,
+    [*output:* greatest common divisor of $a$ and $b$],
+    <line:while1>,
+    [*while* $a != b$ *do*], ind,
+      [*if* $a > b$ *then*], ind,
+        $a <- a - b$, ded,
+      [*else*], ind, 
+        [$b <- b - a$ #comment[comment test]], ded,
+      [*end* #comment[another comment test]], ded,
+    [*end*],
+    [*return* $a$]
+  )
+)
+
+  #indent In @line:while1, we have a while loop.
+
+  The algorithm figure's breakable.
+
 ]
 
 #section(section_name: "作业 (选做部分)")
