@@ -24,6 +24,10 @@
 #problem()[]
 
 #solution[
+
+#let prox = [#math.op("prox")]
+// #let proj = [#math.op("proj")]
+
 // + $ op("prox")_g (bold(y)) = arg min_(bold(x in RR ^n)) {1/2 norm(bold(x)-bold(y))^2 + g(bold(x))}. $ 
 1. we know that:
 $ prox_phi (z) = argmin_(x in RR) {1/2 norm(x-z)^2 + phi.alt(x-c)}. $ 
@@ -45,7 +49,10 @@ $ prox_phi(z) = prox_phi.alt(z-c)+c  = cases(z-lambda "when " z>lambda + c,
 
 #problem()[]
 
-#solution[
+#solution[  
+#let prox = [#math.op("prox")]
+// #let proj = [#math.op("proj")]
+
 1. If we take the derivative of $1/2 norm(bold(x)-bold(x)^(t-1))^2 + gamma g(bold(x))$, we have
 $ bold(x^t) = prox_(gamma g)(bold(x)^(t-1)) =  bold(x)^(t-1) - gamma nabla g(bold(x^t)) $
 
@@ -87,7 +94,6 @@ hence $op("sgn")(x) in diff norm(x)_1$.
 #solution[
 
 #indent This a test for code blocks.
-
 
 For rust:
 

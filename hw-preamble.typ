@@ -15,6 +15,8 @@
 #import "@preview/lovelace:0.2.0": *
 #let pseudocode = pseudocode.with(indentation-guide-stroke: 0.5pt)
 
+// Mitex for latex math equations
+#import "@preview/mitex:0.2.3": *
 
 // Environment for sections, problems, solutions, etc
 #let problem_counter = counter("problem")
@@ -67,15 +69,16 @@
 }
 
 // Some math operators
-#let prox = [#math.op("prox")]
-#let proj = [#math.op("proj")]
+// Writing math operators in Typst is a bit tricky.
+// if with difficulty, you can refer to the following links:
+// https://typst.app/docs/reference/math/
+// https://typst.app/docs/reference/symbols/sym/
 #let argmin = [#math.arg]+[#math.min]
 
 
 // Initiate the document title, author...
 #let assignment_class(title, author, student_number, due_time, body) = {
   set text(font: ("Noto Serif CJK SC"), lang: "zh", region: "cn")
-
   set document(title: title, author: author)
 
   // Basic page settings
