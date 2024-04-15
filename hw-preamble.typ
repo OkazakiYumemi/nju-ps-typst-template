@@ -18,18 +18,22 @@
 // Mitex for latex math equations
 #import "@preview/mitex:0.2.3": *
 
+// CeTZ for drawing
+#import "@preview/cetz:0.2.2"
+
 // Environment for sections, problems, solutions, etc
 #let problem_counter = counter("problem")
 #let section_counter = counter("section")
+#let solsection_counter = counter("solsection")
 
 #let section(section_name: none) = {
   if section_name != none {
     align(center, text(20pt)[
-      *#section_counter.step() #section_counter.display() #h(0.5em) #section_name*
+      == #section_counter.step() #section_counter.display() #h(0.5em) #section_name
     ])
   } else {
     align(center, text(20pt)[
-      *#section_counter.step() #section_counter.display()*
+      == #section_counter.step() #section_counter.display()
     ])
   }
   problem_counter.update(0)
@@ -56,9 +60,12 @@
   body
 ) = {
   if solution_beginning != none {
-    [=== #solution_beginning]
+    text(12pt)[=== #solution_beginning]
   }
+  
+  solsection_counter.update(0)
   set par(first-line-indent: 2em)
+
   block(
     width: 100%,
     inset: 8pt,
@@ -66,6 +73,16 @@
     stroke: gray,
     body)
   line(length: 100%, stroke: black)
+}
+
+#let solsection(
+  solsection_name: none
+) = {
+  if solsection_name != none {
+    [== #solsection_counter.step() #solsection_counter.display() #h(0.5em) #solsection_name]
+  } else {
+    [== #solsection_counter.step() #solsection_counter.display()]
+  }
 }
 
 // Some math operators
