@@ -172,10 +172,11 @@
     stroke-color: rgb("666666"),
   )
 
- // Enable the lovelace environment
- show: setup-lovelace
+  // Enable the lovelace environment
+  show: setup-lovelace
 
-
+  // Setting link style
+  show link: it => text(blue, underline(it))
 
 
   body
