@@ -124,42 +124,42 @@
   // Title and Infomation
   align(center, text(24pt)[*#title*])
   block(
-    height: 40pt,
-    columns(2, gutter: 14pt)[
-      #set par(justify: true)
-      #set text(14pt)
-      #h(50%)  姓名：#underline(evade: false, offset: 2pt)[#author]
-
-      #h(50%)  评分：#underline[]
-      #colbreak()
-      
-      学号：#underline(evade: false, offset: 2pt)[#student_number]
-      
-      评阅：#underline[]
-    ]
-    // height: 50pt,
-    // [
+    // height: 40pt,
+    // columns(2, gutter: 14pt)[
     //   #set par(justify: true)
     //   #set text(14pt)
-    //   #grid(
-    //     columns: (20%, auto, 1fr, auto, 1fr, 20%),
-    //     rows: (50%, 50%),
-    //     column-gutter: (0pt, 6pt, 14pt, 6pt, 0pt),
-    //     [],
-    //     [姓名：],
-    //     [#h(6pt) #author #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
-    //     [学号：],
-    //     [#h(6pt) #student_number #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
-    //     [],
+    //   #h(50%)  姓名：#underline(evade: false, offset: 2pt)[#author]
 
-    //     [],
-    //     [评阅：],
-    //     [#hide([评阅人]) #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
-    //     [评分：],
-    //     [#hide([分数]) #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
-    //     [],
-    //   )
+    //   #h(50%)  评分：#underline[]
+    //   #colbreak()
+      
+    //   学号：#underline(evade: false, offset: 2pt)[#student_number]
+      
+    //   评阅：#underline[]
     // ]
+    height: 50pt,
+    [
+      #set par(justify: true)
+      #set text(14pt)
+      #grid(
+        columns: (20%, auto, 0.85fr, auto, 1fr, 20%),
+        rows: (50%, 50%),
+        column-gutter: (0pt, 6pt, 14pt, 6pt, 0pt),
+        [],
+        [姓名：],
+        [#align(center)[#author] #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
+        [学号：],
+        [#align(center)[#student_number] #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
+        [],
+
+        [],
+        [评阅：],
+        [#hide([评阅人]) #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
+        [评分：],
+        [#hide([分数]) #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
+        [],
+      )
+    ]
   )
   align(center, text(14pt)[#due_time])
 
