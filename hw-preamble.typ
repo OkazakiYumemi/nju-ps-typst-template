@@ -95,7 +95,7 @@
 
 // Initiate the document title, author...
 #let assignment_class(title, author, student_number, due_time, body) = {
-  set text(font: ("Noto Serif CJK SC"), lang: "zh", region: "cn")
+  set text(font: ("Noto Serif", "Noto Serif CJK SC"), lang: "zh", region: "cn")
   set document(title: title, author: author)
 
   // Basic page settings
@@ -225,4 +225,3 @@
 
 //   align(center)[= #title]
 }
-

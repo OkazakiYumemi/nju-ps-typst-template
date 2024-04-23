@@ -95,6 +95,18 @@ hence $op("sgn")(x) in diff norm(x)_1$.
 
 #problem()[]
 
+#solution()[
+  #indent 中文排印测试：
+  
+  这是一条测试语句：“我能吞下玻璃而不伤身体。”
+
+  這是一條測試語句：「我能吞下玻璃而不傷身體。」
+
+  此處目前仍有問題，具體而言，當將 Noto Serif 字形置於 Noto Serif CJK 字形之前時，中文引號的顯示效果與英文引號相同，並且不會參與標點擠壓。正在尋找解決方案。用家可以在文章較多使用中文時，僅使用 Noto Serif CJK 字形，來保證中文排印的效果。
+]
+
+#problem()[]
+
 #solution[
 
 #indent This a test for code blocks.
