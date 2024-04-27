@@ -97,12 +97,20 @@ hence $op("sgn")(x) in diff norm(x)_1$.
 
 #solution()[
   #indent 中文排印测试：
+
+  Here's a test sentence, "I can eat glass, it does not hurt me."
   
   这是一条测试语句：“我能吞下玻璃而不伤身体。”
 
   這是一條測試語句：「我能吞下玻璃而不傷身體。」
 
-  此處目前仍有問題，具體而言，當將 Noto Serif 字形置於 Noto Serif CJK 字形之前時，中文引號的顯示效果與英文引號相同，並且不會參與標點擠壓。正在尋找解決方案。用家可以在文章較多使用中文時，僅使用 Noto Serif CJK 字形，來保證中文排印的效果。
+  // 此處目前仍有問題，具體而言，當將 Noto Serif 字形置於 Noto Serif CJK 字形之前時，中文引號的顯示效果與英文引號相同，並且不會參與標點擠壓。正在尋找解決方案。用家可以在文章較多使用中文時，僅使用 Noto Serif CJK 字形，來保證中文排印的效果。
+
+  默認使用 "IBM Plex Serif", "Source Han Serif SC", "Noto Serif CJK SC" 字形，並且設置語言為 "zh" ，地區為 "cn" 。
+
+  目前的效果是，當引號`"`兩邊有 CJK 字符，引號將以半角顯示"，否則正常顯示英文引號。
+
+  測試："中文引號", "quotation marks".
 ]
 
 #problem()[]

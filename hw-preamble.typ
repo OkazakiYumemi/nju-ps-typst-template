@@ -45,7 +45,11 @@
   body
 ) = {
   if problem_id != none {
-    [== #problem_beginning #problem_counter.step() #problem_counter.display() (#problem_id)]
+    if problem_beginning != none {
+      [== #problem_beginning #problem_counter.step() #problem_counter.display() (#problem_id)]
+    } else {
+      [== #problem_counter.step() #problem_id]
+    }
   } else {
     [== #problem_beginning #problem_counter.step() #problem_counter.display()]
   }
@@ -95,7 +99,7 @@
 
 // Initiate the document title, author...
 #let assignment_class(title, author, student_number, due_time, body) = {
-  set text(font: ("Noto Serif", "Noto Serif CJK SC"), lang: "zh", region: "cn")
+  set text(font: ("IBM Plex Serif", "Source Han Serif SC", "Noto Serif CJK SC"), lang: "zh", region: "cn")
   set document(title: title, author: author)
 
   // Basic page settings
@@ -225,3 +229,4 @@
 
 //   align(center)[= #title]
 }
+
