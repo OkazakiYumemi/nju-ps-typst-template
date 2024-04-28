@@ -204,7 +204,7 @@
   show: setup-lovelace
 
   // Setting link style
-  show link: it => text(blue, underline(it))
+  show link: it => text(blue, underline(it, evade: false, offset: 2pt))
 
 
   body
