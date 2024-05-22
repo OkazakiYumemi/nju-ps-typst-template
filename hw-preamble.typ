@@ -20,6 +20,8 @@
 
 // CeTZ for drawing
 #import "@preview/cetz:0.2.2"
+// Fletcher for drawing
+#import "@preview/fletcher:0.4.5"
 
 // Environment for sections, problems, solutions, etc
 #let problem_counter = counter("problem")

@@ -273,6 +273,22 @@ Then pseudocodes.
   let (a, b) = ("tree.0-0-1", "tree.0-1-0",)
   line((a, .6, b), (b, .6, a), mark: (end: ">"))
 })
+
+
+  #fletcher.diagram(
+    import fletcher: *,
+    node((0,0), [1], stroke: .1em, name: <1>),
+    node((2, 0), [3], stroke: .1em, name: <3>),
+    node((4, 0), [5], stroke: .1em, name: <5>),
+    node((1, .5), [2], stroke: .1em, name: <2>),
+    node((3, .5), [4], stroke: .1em, name: <4>),
+    edge(<1>, <2>, [2], marks: "-|>", label-side: right),
+    edge(<2>, <3>, [2], marks: "-|>", label-side: right),
+    edge(<3>, <4>, [2], marks: "-|>", label-side: right),
+    edge(<4>, <5>, [2], marks: "-|>", label-side: right),
+    edge(<1>, <3>, [1], marks: "-|>"),
+    edge(<3>, <5>, [1], marks: "-|>"),
+  )
 ]
 
 
