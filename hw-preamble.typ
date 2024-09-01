@@ -14,6 +14,11 @@
 // Environment for algorithmic pseudocode
 #import "@preview/lovelace:0.3.0": *
 #let pseudocode = pseudocode.with(indentation-guide-stroke: 0.5pt)
+#let comment-color = gray
+#let comment(body) = {
+  h(1fr)
+  text(size: .85em, fill: comment-color, sym.triangle.stroked.r + sym.space + body)
+}
 
 // Mitex for latex math equations
 #import "@preview/mitex:0.2.4": *
@@ -198,12 +203,11 @@
   
   codly(
     display-icon: false,
-    stroke-width: 1pt,
-    stroke-color: rgb("666666"),
+    stroke: 1pt + rgb("666666")
   )
 
-  // Enable the lovelace environment
-  show: setup-lovelace
+  // // Enable the lovelace environment
+  // show: setup-lovelace
 
   // Setting link style
   show link: it => text(blue, underline(it, evade: false, offset: 2pt))

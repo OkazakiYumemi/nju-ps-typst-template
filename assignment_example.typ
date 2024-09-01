@@ -154,7 +154,7 @@ fibonaci(10)
 
 Disable line numbers:
 
-#codly(enable-numbers: false)
+#codly(number-format: none)
 
 ```cpp
 int main() {
@@ -164,26 +164,39 @@ int main() {
 ```
 
 Then pseudocodes.
-#algorithm(
-  caption: [The Euclidean algorithm],
-  pseudocode(
-    no-number,
-    [*input:* integers $a$ and $b$],
-    no-number,
-    [*output:* greatest common divisor of $a$ and $b$],
-    <line:while1>,
-    [*while* $a != b$ *do*], ind,
-      [*if* $a > b$ *then*], ind,
-        $a <- a - b$, ded,
-      [*else*], ind, 
-        [$b <- b - a$ #comment[comment test]], ded,
-      [*end* #comment[another comment test]], ded,
-    [*end*],
-    [*return* $a$]
-  )
+#figure(
+  kind: "algorithm",
+  supplement: [Algorithm],
+  
+  caption: [],
+  pseudocode-list(booktabs: true, numbered-title: [The Euclidean algorithm])[
+    // no-number,
+    // [*input:* integers $a$ and $b$],
+    // no-number,
+    // [*output:* greatest common divisor of $a$ and $b$],
+    // <line:while1>,
+    // [*while* $a != b$ *do*], ind,
+    //   [*if* $a > b$ *then*], ind,
+    //     $a <- a - b$, ded,
+    //   [*else*], ind, 
+    //     [$b <- b - a$ #comment[comment test]], ded,
+    //   [*end* #comment[another comment test]], ded,
+    // [*end*],
+    // [*return* $a$]
+    - *input:* integers $a$ and $b$
+    - *output:* greatest common divisor of $a$ and $b$
+    + #line-label(<while1>) *while* $a != b$ *do*
+      + *if* $a > b$ *then*
+        + $a <- a - b$
+      + *else*
+        + $b <- b - a$ #comment[comment test]
+      + *end* #comment[another comment test]
+    + *end*
+    + *return* $a$
+  ]
 )
 
-  #indent In @line:while1, we have a while loop.
+  #indent In @while1, we have a while loop.
 
   The algorithm figure's breakable.
 
