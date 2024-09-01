@@ -1,5 +1,5 @@
 // Basic layout
-#let indent = h(2em)
+#let ind2 = h(2em)
 
 // Environment for beautiful code blocks
 #import "@preview/codly:1.0.0": *
