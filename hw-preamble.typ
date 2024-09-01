@@ -2,7 +2,7 @@
 #let indent = h(2em)
 
 // Environment for beautiful code blocks
-#import "@preview/codly:0.2.0": *
+#import "@preview/codly:1.0.0": *
 #let codly_icon() = {
   box(
     height: 0.8em,
@@ -12,16 +12,16 @@
 }
 
 // Environment for algorithmic pseudocode
-#import "@preview/lovelace:0.2.0": *
+#import "@preview/lovelace:0.3.0": *
 #let pseudocode = pseudocode.with(indentation-guide-stroke: 0.5pt)
 
 // Mitex for latex math equations
-#import "@preview/mitex:0.2.3": *
+#import "@preview/mitex:0.2.4": *
 
 // CeTZ for drawing
 #import "@preview/cetz:0.2.2"
 // Fletcher for drawing
-#import "@preview/fletcher:0.4.5"
+#import "@preview/fletcher:0.5.1"
 
 // Environment for sections, problems, solutions, etc
 #let problem_counter = counter("problem")

@@ -288,6 +288,7 @@ Then pseudocodes.
     edge(<4>, <5>, [2], marks: "-|>", label-side: right),
     edge(<1>, <3>, [1], marks: "-|>"),
     edge(<3>, <5>, [1], marks: "-|>"),
+    edge(<2>, <2>, [0], marks: "--|>", bend: -130deg, ),
   )
 ]
 
