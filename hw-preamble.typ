@@ -106,7 +106,7 @@
 
 // Initiate the document title, author...
 #let assignment_class(title, author, student_number, due_time, body) = {
-  set text(font: ("IBM Plex Serif", "Source Han Serif SC", "Noto Serif CJK SC"), lang: "zh", region: "cn")
+  set text(font: ("Noto Serif", "IBM Plex Serif"), lang: "zh", region: "cn")
   set document(title: title, author: author)
 
   // Basic page settings
