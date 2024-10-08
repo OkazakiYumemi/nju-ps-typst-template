@@ -53,12 +53,12 @@
 ) = {
   if problem_id != none {
     if problem_beginning != none {
-      [== #problem_beginning #problem_counter.step() #problem_counter.display() (#problem_id)]
+      text(14pt)[=== #problem_beginning #problem_counter.step() #problem_counter.display() (#problem_id)]
     } else {
-      [== #problem_counter.step() #problem_id]
+      text(14pt)[=== #problem_counter.step() #problem_id]
     }
   } else {
-    [== #problem_beginning #problem_counter.step() #problem_counter.display()]
+    text(14pt)[=== #problem_beginning #problem_counter.step() #problem_counter.display()]
   }
 
   set par(first-line-indent: 2em)
@@ -90,9 +90,9 @@
   solsection_name: none
 ) = {
   if solsection_name != none {
-    [== #solsection_counter.step() #solsection_counter.display() #h(0.5em) #solsection_name]
+    text(12pt)[*#solsection_counter.step() #solsection_counter.display() #h(0.5em) #solsection_name*]
   } else {
-    [== #solsection_counter.step() #solsection_counter.display()]
+    text(12pt)[*#solsection_counter.step() #solsection_counter.display()*]
   }
 }
 
