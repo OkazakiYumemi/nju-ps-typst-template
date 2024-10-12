@@ -32,11 +32,13 @@
 #let problem_counter = counter("problem")
 #let section_counter = counter("section")
 #let solsection_counter = counter("solsection")
+#let default_problem_beginning = "Problem"
+#let default_solution_beginning = "Solution:"
 
-#let section(section_name: none) = {
-  if section_name != none {
+#let section(title: none) = {
+  if title != none {
     align(center, text(20pt)[
-      == #section_counter.step() #section_counter.display() #h(0.5em) #section_name
+      == #section_counter.step() #section_counter.display() #h(0.5em) #title
     ])
   } else {
     align(center, text(20pt)[
@@ -47,18 +49,18 @@
 }
 
 #let problem(
-  problem_beginning: "Problem",
-  problem_id: none,
+  beginning: default_problem_beginning,
+  title: none,
   body
 ) = {
-  if problem_id != none {
-    if problem_beginning != none {
-      text(14pt)[=== #problem_beginning #problem_counter.step() #problem_counter.display() (#problem_id)]
+  if title != none {
+    if beginning != none {
+      text(14pt)[=== #beginning #problem_counter.step() #problem_counter.display() (#title)]
     } else {
-      text(14pt)[=== #problem_counter.step() #problem_id]
+      text(14pt)[=== #problem_counter.step() #title]
     }
   } else {
-    text(14pt)[=== #problem_beginning #problem_counter.step() #problem_counter.display()]
+    text(14pt)[=== #beginning #problem_counter.step() #problem_counter.display()]
   }
 
   set par(first-line-indent: 2em)
@@ -67,16 +69,19 @@
 }
 
 #let solution(
-  solution_beginning: "Solution:", 
+  beginning: default_solution_beginning,
   body
 ) = {
-  if solution_beginning != none {
-    text(12pt)[=== #solution_beginning]
+  if beginning != none {
+    v(.3em)
+    text(12pt)[*#beginning*]
+    // text(12pt)[=== #beginning]
   }
   
   solsection_counter.update(0)
   set par(first-line-indent: 2em)
 
+  v(-.5em)
   block(
     width: 100%,
     inset: 8pt,
@@ -87,10 +92,10 @@
 }
 
 #let solsection(
-  solsection_name: none
+  title: none
 ) = {
-  if solsection_name != none {
-    text(12pt)[*#solsection_counter.step() #solsection_counter.display() #h(0.5em) #solsection_name*]
+  if title != none {
+    text(12pt)[*#solsection_counter.step() #solsection_counter.display() #h(0.5em) #title*]
   } else {
     text(12pt)[*#solsection_counter.step() #solsection_counter.display()*]
   }
@@ -102,7 +107,7 @@
 // https://typst.app/docs/reference/math/
 // https://typst.app/docs/reference/symbols/sym/
 #let argmin = [#math.arg]+[#math.min]
-
+#let argmax = [#math.arg]+[#math.max]
 
 // Initiate the document title, author...
 #let assignment_class(title, author, student_number, due_time, body) = {
@@ -129,7 +134,7 @@
     //   align(center)[Page #page_number of #total_pages]
     // })
     )
-  block(height:25%,fill:none)
+  block(height: 25%, fill: none)
 
 
   // Title and Infomation
@@ -181,13 +186,22 @@
       stroke: black,
       radius: 3pt
     )[
-      这是适用于问题求解作业的 Typst 模板，
+      这是适用于问题求解作业的 #link("https://github.com/OkazakiYumemi/nju-ps-typst-template")[Typst 模板]，
 
-      同时也可用于写作实验报告等。
+      // 同时也可用于其他类型的作业。
+      也可用于其他类型的作业与报告等。
 
-      但该模板仍在进行测试中，
+      该模板仍在进行测试中，
       
       *请谨慎使用。*
+
+      // 这是适用于问题求解作业的 #link("https://github.com/OkazakiYumemi/nju-ps-typst-template")[Typst 模板]，
+
+      // 经过一段时间的测试，
+
+      // 已经基本稳定。
+
+      // 同时也可用于写作实验报告等。
     ]
   ]
 

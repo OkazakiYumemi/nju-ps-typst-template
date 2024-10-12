@@ -5,22 +5,23 @@
 #let due_time = "2024 年 2 月 31 日"
 #show: assignment_class.with(title, author, student_number, due_time)
 
-#section(section_name: "作业 (必做部分)")
+#section(title: "作业 (必做部分)")
 
-#problem(problem_id: "AC 1.2-3")[]
+#problem(title: "AC 1.2-3")[
+]
 
 #solution[
 // + $A=mat(1,-1;-1,1;1,1)$
 
 #set enum(numbering: "a)")
 
-#solsection(solsection_name: lorem(3))
+#solsection(title: lorem(3))
 
 1. when $min(norm(bold(x))_2)$, $bold(x) = bold(x^*)$ is the solution to the problem, which is $x^*=vec(1/sqrt(3),1/sqrt(3),1/sqrt(3))$
 
 2. We have a matrix $bold(A) = mat(1,1;1,1;1,0)$, the projection operator is $ bold(P) = bold(A)(bold(A)^T A)^(-1)bold(A)^T = mat(1/2,1/2,0;1/2,1/2,0;0,0,1), $ hence, $ bold(x^*) = bold(P) bold(v)  = vec(1/2,1/2,1). $ 
 
-#solsection(solsection_name: lorem(5))
+#solsection(title: lorem(5))
 
 3. We have a  matrix $bold(A) = mat(1,-1;-1,1;2,2)$, the projection operator is $ bold(P) = bold(A)(bold(A)^T A)^(-1)bold(A)^T = mat(1/2,-1/2,0;-1/2,1/2,0;0,0,1), $ hence, $ bold(x^*) = bold(P) bold(v)  = vec(1/2,-1/2,0). $
 ]
@@ -67,9 +68,9 @@ $ g(bold(x)^(t)) <= g(bold(x^(t-1))) - nabla g(bold(x^(t)))^T (bold(x)^(t-1)-bol
 $ -oo<g(bold(x)^t)<=g(bold(x)^(t-1)) $ and we have $ g(bold(x)^(t)) <=  g(bold(x^(t-1))) - gamma nabla norm(g(bold(x^(t))))^2_2 $ hence $ 0<=gamma nabla norm(g(bold(x^(t))))^2_2<=0 $ if $ t arrow +oo $
 ]
 
-#problem(problem_id: "ST 5.5-5")[]
+#problem(title: "ST 5.5-5")[]
 
-#solution(solution_beginning: "Proof:")[
+#solution(beginning: "Proof:")[
 1. because
 $ 
 diff f(bold(x)) =  {bold(v) in RR^n : f(bold(y))>= f(bold(x))+ bold(v)^T (bold(y)-bold(x)),forall bold(y) in RR^n}
@@ -204,7 +205,7 @@ Then pseudocodes.
 
 ]
 
-#problem(problem_id: "")[
+#problem(title: "")[
   This is a test for CeTZ.
 ]
 
@@ -308,9 +309,9 @@ Then pseudocodes.
 ]
 
 
-#section(section_name: "作业 (选做部分)")
+#section(title: "作业 (选做部分)")
 
-#problem(problem_id: "EoSD 9961")[
+#problem(title: "EoSD 9961")[
     #ind2 How to pass 「レッドマジック」？
 ]
 
