@@ -2,7 +2,7 @@
 #let ind2 = h(2em)
 
 // Environment for beautiful code blocks
-#import "@preview/codly:1.0.0": *
+#import "@preview/codly:1.2.0": *
 #let codly_icon() = {
   box(
     height: 0.8em,
@@ -21,12 +21,12 @@
 }
 
 // Mitex for latex math equations
-#import "@preview/mitex:0.2.4": *
+#import "@preview/mitex:0.2.5": *
 
 // CeTZ for drawing
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.2"
 // Fletcher for drawing
-#import "@preview/fletcher:0.5.1"
+#import "@preview/fletcher:0.5.5"
 
 // Environment for sections, problems, solutions, etc
 #let problem_counter = counter("problem")
@@ -38,11 +38,11 @@
 #let section(title: none) = {
   if title != none {
     align(center, text(20pt)[
-      == #section_counter.step() #section_counter.display() #h(0.5em) #title
+      == #section_counter.step() #context [#section_counter.display()] #h(0.5em) #title
     ])
   } else {
     align(center, text(20pt)[
-      == #section_counter.step() #section_counter.display()
+      == #section_counter.step() #context [#section_counter.display()]
     ])
   }
   problem_counter.update(0)
@@ -55,12 +55,12 @@
 ) = {
   if title != none {
     if beginning != none {
-      text(14pt)[=== #beginning #problem_counter.step() #problem_counter.display() (#title)]
+      text(14pt)[=== #beginning #problem_counter.step() #context [#problem_counter.display()] (#title)]
     } else {
       text(14pt)[=== #problem_counter.step() #title]
     }
   } else {
-    text(14pt)[=== #beginning #problem_counter.step() #problem_counter.display()]
+    text(14pt)[=== #beginning #problem_counter.step() #context [#problem_counter.display()]]
   }
 
   set par(first-line-indent: 2em)
@@ -95,9 +95,9 @@
   title: none
 ) = {
   if title != none {
-    text(12pt)[*#solsection_counter.step() #solsection_counter.display() #h(0.5em) #title*]
+    text(12pt)[*#solsection_counter.step() #context [#solsection_counter.display()] #h(0.5em) #title*]
   } else {
-    text(12pt)[*#solsection_counter.step() #solsection_counter.display()*]
+    text(12pt)[*#solsection_counter.step() #context [#solsection_counter.display()]*]
   }
 }
 
@@ -117,22 +117,22 @@
   // Basic page settings
   set page(
     paper: "a4", 
-    header: locate( 
-      loc => if (
-        counter(page).at(loc).first()==1) { none } 
-      else { 
-        let page_number = counter(page).at(loc).first()
-        let total_pages = counter(page).final(loc).last()
+    header: context {
+      if here().page() == 1 {
+        none
+      } else {
+        let page_number = counter(page).display()
+        let total_pages = counter(page).final().first()
         align(right, 
           [*#author* | *#title* | *Page #page_number of #total_pages*]
-        ) 
+        )
       }
-    ),
-    // footer: locate(loc => {
-    //   let page_number = counter(page).at(loc).first()
-    //   let total_pages = counter(page).final(loc).last()
+    },
+    // footer: context {
+    //   let page_number = counter(page).display()
+    //   let total_pages = counter(page).final().first()
     //   align(center)[Page #page_number of #total_pages]
-    // })
+    // }
     )
   block(height: 25%, fill: none)
 

@@ -141,7 +141,7 @@ zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
 
 Select only a range of lines to show:
 
-#codly-range(start: 3, end: 7)
+#codly-range(3, end: 7)
 
 ```python
 import numpy as np
