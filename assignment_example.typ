@@ -97,7 +97,7 @@ hence $op("sgn")(x) in diff norm(x)_1$.
 #problem()[]
 
 #solution()[
-  #ind2 中文排印测试：
+  中文排印测试：
 
   Here's a test sentence, "I can eat glass, it does not hurt me."
   
@@ -120,7 +120,7 @@ hence $op("sgn")(x) in diff norm(x)_1$.
 
 #solution[
 
-#ind2 This a test for code blocks.
+This a test for code blocks.
 
 For rust:
 
@@ -199,7 +199,7 @@ Then pseudocodes.
   ]
 )
 
-  #ind2 In @while1, we have a while loop.
+  In @while1, we have a while loop.
 
   The algorithm figure's breakable.
 
@@ -312,9 +312,9 @@ Then pseudocodes.
 #section(title: "作业 (选做部分)")
 
 #problem(title: "EoSD 9961")[
-    #ind2 How to pass 「レッドマジック」？
+    How to pass 「レッドマジック」？
 ]
 
 #solution[
-    #ind2 Practice more.
+    Practice more.
 ]
