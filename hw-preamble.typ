@@ -63,7 +63,8 @@
     text(14pt)[=== #beginning #problem_counter.step() #context [#problem_counter.display()]]
   }
 
-  set par(first-line-indent: 2em)
+  set par(first-line-indent: (amount: 2em, all: true))
+  // set par(first-line-indent: 2em)
 
   body
 }
@@ -79,7 +80,8 @@
   }
   
   solsection_counter.update(0)
-  set par(first-line-indent: 2em)
+  set par(first-line-indent: (amount: 2em, all: true))
+  // set par(first-line-indent: 2em)
 
   v(-.5em)
   block(
@@ -135,6 +137,7 @@
     // }
     )
   block(height: 25%, fill: none)
+  // set par(first-line-indent: (amount: 2em, all: true))
 
 
   // Title and Infomation
