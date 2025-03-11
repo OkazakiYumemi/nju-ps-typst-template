@@ -1,9 +1,10 @@
 #import "hw-preamble.typ": *
-#let title = "第 1 讲: 测试"
-#let author = "张三"
-#let student_number = "998244353"
-#let due_time = "2024 年 2 月 31 日"
-#show: assignment_class.with(title, author, student_number, due_time)
+#show: assignment_class.with(
+  title: "第 1 讲: 测试",
+  author: "张三",
+  student_number: "998244353",
+  due_time: datetime(year: 2024, month: 2, day: 29),
+)
 
 #section(title: "作业 (必做部分)")
 
@@ -124,25 +125,31 @@ This a test for code blocks.
 
 For rust:
 
+#zebraw(
 ```rust
 pub fn main() {
     println!("Hello, world!");
 }
 ```
+)
 
-For haskell:
+// For haskell:
 
-```haskell
-zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]  
-zipWith' _ [] _ = []  
-zipWith' _ _ [] = []  
-zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
-```
+// #zebraw(
+// ```haskell
+// zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]  
+// zipWith' _ [] _ = []  
+// zipWith' _ _ [] = []  
+// zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
+// ```
+// )
 
-Select only a range of lines to show:
+// Select only a range of lines to show:
+Highlight some lines:
 
-#codly-range(3, end: 7)
-
+// #codly-range(3, end: 7)
+#zebraw(
+  highlight-lines: (1, ..range(4, 8)),
 ```python
 import numpy as np
 
@@ -154,17 +161,26 @@ def fibonaci(n):
 
 fibonaci(10)
 ```
+)
 
-Disable line numbers:
+Commenting some lines and adding header and footer:
 
-#codly(number-format: none)
+#zebraw(
+  header: "This is a test for zebraw.",
+  footer: "End of the test.",
+  highlight-lines: ((7, [$f_n = f_(n-1) + f_(n-2)$]), ),
+```python
+import numpy as np
 
-```cpp
-int main() {
-  cout << "Hello, World!"; // 你好，世界
-  return 0;
-}
+def fibonaci(n):
+  if n <= 1:
+    return n
+  else:
+    return(fibonaci(n-1) + fibonaci(n-2))
+
+fibonaci(10)
 ```
+)
 
 Then pseudocodes.
 #figure(
@@ -317,4 +333,5 @@ Then pseudocodes.
 
 #solution[
     Practice more.
+
 ]

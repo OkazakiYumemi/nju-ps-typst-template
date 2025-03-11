@@ -2,14 +2,16 @@
 #let ind2 = h(2em)
 
 // Environment for beautiful code blocks
-#import "@preview/codly:1.2.0": *
-#let codly_icon() = {
-  box(
-    height: 0.8em,
-    baseline: 0.05em,
-  )
-  h(0.1em)
-}
+// #import "@preview/codly:1.2.0": *
+// #let codly_icon() = {
+//   box(
+//     height: 0.8em,
+//     baseline: 0.05em,
+//   )
+//   h(0.1em)
+// }
+// Use zebraw instead of codly
+#import "@preview/zebraw:0.4.7": *
 
 // Environment for algorithmic pseudocode
 #import "@preview/lovelace:0.3.0": *
@@ -24,9 +26,9 @@
 #import "@preview/mitex:0.2.5": *
 
 // CeTZ for drawing
-#import "@preview/cetz:0.3.2"
+#import "@preview/cetz:0.3.4"
 // Fletcher for drawing
-#import "@preview/fletcher:0.5.5"
+#import "@preview/fletcher:0.5.6"
 
 // Environment for sections, problems, solutions, etc
 #let problem_counter = counter("problem")
@@ -112,7 +114,7 @@
 #let argmax = [#math.arg]+[#math.max]
 
 // Initiate the document title, author...
-#let assignment_class(title, author, student_number, due_time, body) = {
+#let assignment_class(title: none, author: none, student_number: none, due_time: datetime.today(), body) = {
   set text(font: ("Noto Serif", "IBM Plex Serif"), lang: "zh", region: "cn")
   set document(title: title, author: author)
 
@@ -180,7 +182,7 @@
       )
     ]
   )
-  align(center, text(14pt)[#due_time])
+  align(center, text(14pt)[#due_time.display("[year repr:full] 年 [month repr:numerical padding:none] 月 [day padding:zero] 日")])
 
   // Alerts or Announcements
   align(center)[
@@ -213,15 +215,20 @@
 
 
   // Enable the codly environment
-  show: codly-init.with()
-  show raw: it => box(
-    text(font: ("FiraCode Nerd Font Mono", "Noto Sans CJK SC"), size: 10pt, it)
+  // show: codly-init.with()
+  show: zebraw-init.with(
+    ..zebraw-themes.zebra-reverse,
+    lang: true,
+    lang-color: teal,
+    // lang-font-args: (),
+    comment-color: yellow.lighten(80%),
   )
+  show raw: set text(font: ("FiraCode Nerd Font Mono", "Noto Serif"))
   
-  codly(
-    display-icon: false,
-    stroke: 1pt + rgb("666666")
-  )
+  // codly(
+  //   display-icon: false,
+  //   stroke: 1pt + rgb("666666")
+  // )
 
   // // Enable the lovelace environment
   // show: setup-lovelace
@@ -231,25 +238,5 @@
 
 
   body
-  
-    // locate(loc => {
-    //   let i = counter(page).at(loc).first()
-    //   if i == 1 { return }
-    //   set text(size: script-size)
-    //   grid(
-    //     columns: (6em, 1fr, 6em),
-    //     if calc.even(i) [#i],
-    //     align(center, upper(
-    //       if calc.odd(i) { title } else { author-string }
-    //     )),
-    //     if calc.odd(i) { align(right)[#i] }
-    //   )
-    // })
-
-//   if student_number != none {
-//     align(top + left)[Student number: #student_number]
-//   }
-
-//   align(center)[= #title]
 }
 
