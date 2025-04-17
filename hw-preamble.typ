@@ -114,8 +114,16 @@
 #let argmax = [#math.arg]+[#math.max]
 
 // Initiate the document title, author...
-#let assignment_class(title: none, author: none, student_number: none, due_time: datetime.today(), body) = {
-  set text(font: ("IBM Plex Serif", "Noto Serif CJK SC", "Noto Sans CJK TC"), lang: "zh", region: "cn")
+#let assignment_class(
+  title: none, 
+  author: none, 
+  student_number: none, 
+  due_time: datetime.today(), 
+  
+  body
+) = {
+  // set text(font: ("IBM Plex Serif", "Noto Serif CJK SC", "Noto Sans CJK TC"), lang: "zh", region: "cn")
+  set text(font: ("Noto Serif", "Noto Serif CJK SC", "Noto Sans CJK TC"), lang: "zh", region: "cn")
   set document(title: title, author: author)
 
   // Basic page settings
