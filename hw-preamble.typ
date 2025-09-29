@@ -11,7 +11,7 @@
 //   h(0.1em)
 // }
 // Use zebraw instead of codly
-#import "@preview/zebraw:0.4.7": *
+#import "@preview/zebraw:0.5.5": *
 
 // Environment for algorithmic pseudocode
 #import "@preview/lovelace:0.3.0": *
@@ -26,9 +26,9 @@
 #import "@preview/mitex:0.2.5": *
 
 // CeTZ for drawing
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.4.2"
 // Fletcher for drawing
-#import "@preview/fletcher:0.5.6"
+#import "@preview/fletcher:0.5.8"
 
 // Environment for sections, problems, solutions, etc
 #let problem_counter = counter("problem")
